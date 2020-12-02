@@ -25,7 +25,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-primary shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     Flowelto Shop
@@ -71,7 +71,7 @@
                                 </div>
                             </li>
                         @endguest
-                        <li class="nav-item nav-link disabled">{{  today()->format('D, j M Y') }}</li>
+                        <li class="nav-item nav-link text-white">{{  today()->format('D, j M Y') }}</li>
                     </ul>
                 </div>
             </div>

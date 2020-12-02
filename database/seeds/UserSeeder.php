@@ -22,7 +22,17 @@ class UserSeeder extends Seeder
                'address' => 'DKI Jakarta',
                'gender' => 'Female',
                'DoB' => Carbon::parse('2000-01-01')
-           ]
+           ],
+            [
+                'id' => 2,
+                'username' => 'ardie',
+                'email' => 'ardie@flowelto.com',
+                'userRole' => 2,
+                'password' => Hash::make('ardie'),
+                'address' => 'Kota Bogor',
+                'gender' => 'Male',
+                'DoB' => Carbon::parse('2001-01-10')
+            ]
         ]);
     }
 }
