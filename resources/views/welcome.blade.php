@@ -12,8 +12,8 @@
             <h5>Hi, {{ Auth::user()->username }}.</h5>
         @endif
     @endauth
-    <h1>Welcome to Flowelto Shop</h1>
-    <h2>The Best Flower Shop in Binus University</h2>
+    <h1 style="text-align: center">Welcome to Flowelto Shop</h1>
+    <h2 style="text-align: center">The Best Flower Shop in Binus University</h2>
     <div class="d-flex flex-wrap">
     @foreach($flower_categories as $flower_category)
         <div class="card m-2" style="width: 14rem;">
