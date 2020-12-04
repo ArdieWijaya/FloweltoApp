@@ -27,7 +27,8 @@ Route::get('/manage/{id}', 'FlowerController@updatecategory');
 Route::get('/cart', 'FlowerController@cart');
 Route::get('/history', 'FlowerController@history');
 Route::get('/history/{id}', 'FlowerController@historydetail');
-Route::get('/changepassword', 'HomeController@changepassword');
+Route::get('/changepassword', 'ChangePasswordController@index');
+Route::post('/changepassword', 'ChangePasswordController@store')->name('change.password');
 
 Auth::routes();
 

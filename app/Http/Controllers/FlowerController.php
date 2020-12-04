@@ -27,7 +27,8 @@ class FlowerController extends Controller
     }
 
     public function details($id){
-        return view('detail');
+        $flower = Flower::find($id);
+        return view('detail', ['flower' => $flower]);
     }
 
     public function add(){
