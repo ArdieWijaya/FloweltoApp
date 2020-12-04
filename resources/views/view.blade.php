@@ -2,6 +2,7 @@
 @section('judul', 'View Flower')
 
 @section('content')
+    <h1 style="text-align: center">Flower Category: {{ $flower_categories->flowerCategoriesName }}</h1>
     <div class="container justify-content-center d-flex flex-wrap">
     @foreach($flowers as $flower)
         @if($flower_categories->id == $flower->flower_category_id)
