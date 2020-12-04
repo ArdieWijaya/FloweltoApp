@@ -37274,6 +37274,10 @@ module.exports = function(module) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+__webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js");
+
+__webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -37339,8 +37343,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/ardiewijaya/Documents/College/5th Semester/Codes/Laravel/Semester V - Web Programming/UTS/BeeFlix/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/ardiewijaya/Documents/College/5th Semester/Codes/Laravel/Semester V - Web Programming/UTS/BeeFlix/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/ardiewijaya/Documents/College/5th Semester/Codes/Laravel/Semester V - Web Programming/Project Akhir/flowelto-shop/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/ardiewijaya/Documents/College/5th Semester/Codes/Laravel/Semester V - Web Programming/Project Akhir/flowelto-shop/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

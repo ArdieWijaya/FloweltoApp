@@ -18,7 +18,17 @@ use Illuminate\Support\Facades\Route;
 //});
 
 Route::get('/', 'FlowerController@homepage');
+Route::get('/category/{id}', 'FlowerController@view');
+Route::get('/category/{id}/update', 'FlowerController@update');
+Route::get('/category/{id}/details', 'FlowerController@details');
+Route::get('/add', 'FlowerController@add');
+Route::get('/manage', 'FlowerController@managecategory');
+Route::get('/manage/{id}', 'FlowerController@updatecategory');
+Route::get('/cart', 'FlowerController@cart');
+Route::get('/history', 'FlowerController@history');
+Route::get('/history/{id}', 'FlowerController@historydetail');
+Route::get('/changepassword', 'HomeController@changepassword');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');

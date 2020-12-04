@@ -20,14 +20,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="152369e9-59e6-4f20-ba4a-b40ccfd6e5c9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/add.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/cart.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/changepassword.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/detail.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/history.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/historydetail.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/managecategory.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/update.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/updatecategory.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/view.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/verify.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/verify.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FlowerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FlowerController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/homepage.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,7 +180,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -175,11 +189,25 @@
       <recent name="$PROJECT_DIR$/public" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="npm.watch">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
+    <configuration name="watch" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="watch" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="npm.watch" />
+      <item itemvalue="PHPUnit.phpunit.xml" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -194,7 +222,9 @@
       <workItem from="1606749207776" duration="5317000" />
       <workItem from="1606789065544" duration="407000" />
       <workItem from="1606825020296" duration="3677000" />
-      <workItem from="1606875106944" duration="4192000" />
+      <workItem from="1606875106944" duration="4374000" />
+      <workItem from="1606898350676" duration="26000" />
+      <workItem from="1607045977465" duration="7664000" />
     </task>
     <servers />
   </component>
@@ -211,15 +241,20 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="424" y="233" width="1071" height="744" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607054301419">
+      <screen x="0" y="25" width="1920" height="1098" />
+    </state>
+    <state x="424" y="233" width="1071" height="744" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1920.1098@0.25.1920.1098" timestamp="1607054301419" />
     <state x="1179" y="333" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606877747070">
       <screen x="0" y="25" width="1920" height="1098" />
     </state>
     <state x="1179" y="333" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.25.1920.1098@0.25.1920.1098" timestamp="1606877747070" />
-    <state x="625" y="270" width="670" height="676" key="search.everywhere.popup" timestamp="1606878632264">
+    <state x="625" y="270" width="670" height="676" key="search.everywhere.popup" timestamp="1607054692641">
       <screen x="0" y="25" width="1920" height="1098" />
     </state>
-    <state x="625" y="270" width="670" height="676" key="search.everywhere.popup/0.25.1920.1098@0.25.1920.1098" timestamp="1606878632264" />
+    <state x="625" y="270" width="670" height="676" key="search.everywhere.popup/0.25.1920.1098@0.25.1920.1098" timestamp="1607054692641" />
   </component>
 </project>

@@ -38,11 +38,6 @@
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
-.imgHeight{
-    height: 70%;
-    object-fit: cover;
-}
-
 *,
 *::before,
 *::after {

@@ -21,7 +21,7 @@
             <div class="card-body">
                 <h5 class="card-title" style="text-align: center">{{ $flower_category->flowerCategoriesName }}</h5>
             </div>
-            <a href="/" class="btn btn-primary btn-lg btn-block">See All</a>
+            <a href="/category/{{ $flower_category->id }}" class="btn btn-primary btn-lg btn-block">See All</a>
         </div>
     @endforeach
     </div>
