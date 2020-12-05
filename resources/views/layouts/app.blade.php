@@ -51,6 +51,19 @@
 {{--                                @endforeach--}}
 {{--                            </div>--}}
 {{--                        </li>--}}
+
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Categories
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+{{--                                @foreach($flower_categories as $flower_category)--}}
+{{--                                    <a class="dropdown-item" href="/category/{{ $flower_category->id }}">{{ $flower_category->flowerCategoriesName }}</a>--}}
+                                <a class="dropdown-item" href="/category/1">Hand Bouquet</a>
+                                <a class="dropdown-item" href="/category/2">Wedding Bouquet</a>
+{{--                                @endforeach--}}
+                            </div>
+                        </div>
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>

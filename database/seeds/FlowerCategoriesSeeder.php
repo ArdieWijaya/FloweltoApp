@@ -13,14 +13,28 @@ class FlowerCategoriesSeeder extends Seeder
     {
         DB::table('flower_categories')->insert([
             [
-                'id' => 1,
                 'flowerCategoriesName' => 'Hand Bouquet',
-                'flowerCategoriesImage' => 'https://cdn.idntimes.com/content-images/community/2018/08/6a54ae54ed4e147630452465ffc047f2.jpg'
+                'flowerCategoriesImage' => 'https://onni.co.id/userdata/product/tomo-peach2227621272040862970.jpg'
             ],
             [
-                'id' => 2,
-                'flowerCategoriesName' => 'Wedding Bouquet',
-                'flowerCategoriesImage' => 'https://i.pinimg.com/originals/97/70/c1/9770c1d5347796222f4c615281ea43bc.jpg'
+                'flowerCategoriesName' => 'Dried Flowers Bouquet',
+                'flowerCategoriesImage' => 'https://ecs7.tokopedia.net/img/cache/700/product-1/2020/1/31/50277487/50277487_60693dd8-ccf1-404a-aaac-5ba622f155c9_1080_1080'
+            ],
+            [
+                'flowerCategoriesName' => 'Flower Box',
+                'flowerCategoriesImage' => 'https://i1.fnp.com/images/pr/l/v20190506175857/the-dainty-floral-box-arrangement_1.jpg'
+            ],
+            [
+                'flowerCategoriesName' => 'Balloon Flower Box',
+                'flowerCategoriesImage' => 'https://cdn.shopify.com/s/files/1/0781/4423/products/bloomthis-balloon-ellen-1080x1080-01_800x.jpg?v=1604136275'
+            ],
+            [
+                'flowerCategoriesName' => 'Doll Bouquet',
+                'flowerCategoriesImage' => 'https://cf.shopee.co.id/file/4eeb1c7eea89a731df04ecaaa8e21592'
+            ],
+            [
+                'flowerCategoriesName' => 'Chocolate Bouquet',
+                'flowerCategoriesImage' => 'https://ecs7.tokopedia.net/img/cache/700/product-1/2019/12/6/158469/158469_3e988823-b107-40bf-bfe9-448b517f0190_1079_1079.jpg'
             ]
         ]);
     }

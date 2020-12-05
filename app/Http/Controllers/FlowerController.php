@@ -12,8 +12,9 @@ class FlowerController extends Controller
 {
 
     public function homepage(){
+        $flowers = Flower::all();
         $flower_categories = FlowerCategory::all();
-        return view('homepage', ['flower_categories' => $flower_categories]);
+        return view('homepage', ['flowers' => $flowers, 'flower_categories' => $flower_categories]);
     }
 
     public function view($id){
