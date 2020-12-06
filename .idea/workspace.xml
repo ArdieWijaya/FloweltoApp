@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -21,11 +24,10 @@
   <component name="ChangeListManager">
     <list default="true" id="152369e9-59e6-4f20-ba4a-b40ccfd6e5c9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FlowerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FlowerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/FlowerCategoriesSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/FlowerCategoriesSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cart.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/homepage.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/homepage.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/view.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -210,7 +212,8 @@
       <workItem from="1606898350676" duration="26000" />
       <workItem from="1607045977465" duration="8343000" />
       <workItem from="1607074579616" duration="6197000" />
-      <workItem from="1607158712499" duration="2391000" />
+      <workItem from="1607158712499" duration="2494000" />
+      <workItem from="1607255233703" duration="8392000" />
     </task>
     <servers />
   </component>
@@ -234,10 +237,10 @@
       <screen x="0" y="25" width="1920" height="1098" />
     </state>
     <state x="424" y="233" width="1071" height="744" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1920.1098@0.25.1920.1098" timestamp="1607054301419" />
-    <state x="1179" y="333" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606877747070">
+    <state x="1179" y="333" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1607263711157">
       <screen x="0" y="25" width="1920" height="1098" />
     </state>
-    <state x="1179" y="333" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.25.1920.1098@0.25.1920.1098" timestamp="1606877747070" />
+    <state x="1179" y="333" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.25.1920.1098@0.25.1920.1098" timestamp="1607263711157" />
     <state width="1878" height="302" key="GridCell.Tab.0.bottom" timestamp="1607055954641">
       <screen x="0" y="25" width="1920" height="1098" />
     </state>
@@ -254,9 +257,13 @@
       <screen x="0" y="25" width="1920" height="1098" />
     </state>
     <state width="1878" height="302" key="GridCell.Tab.0.right/0.25.1920.1098@0.25.1920.1098" timestamp="1607055954641" />
-    <state x="625" y="270" width="670" height="676" key="search.everywhere.popup" timestamp="1607077414833">
+    <state x="143" y="148" width="1693" height="722" key="dock-window-1" timestamp="1607261291996">
       <screen x="0" y="25" width="1920" height="1098" />
     </state>
-    <state x="625" y="270" width="670" height="676" key="search.everywhere.popup/0.25.1920.1098@0.25.1920.1098" timestamp="1607077414833" />
+    <state x="143" y="148" width="1693" height="722" key="dock-window-1/0.25.1920.1098@0.25.1920.1098" timestamp="1607261291996" />
+    <state x="625" y="270" width="670" height="676" key="search.everywhere.popup" timestamp="1607265072448">
+      <screen x="0" y="25" width="1920" height="1098" />
+    </state>
+    <state x="625" y="270" width="670" height="676" key="search.everywhere.popup/0.25.1920.1098@0.25.1920.1098" timestamp="1607265072448" />
   </component>
 </project>

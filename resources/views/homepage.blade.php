@@ -2,6 +2,7 @@
 @section('judul', 'Homepage')
 
 @section('content')
+
     <div class = "container">
         @guest
             <h5>Guest</h5>
