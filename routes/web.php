@@ -17,16 +17,16 @@ use Illuminate\Support\Facades\Route;
 //    return view('welcome');
 //});
 
-Route::get('/', 'FlowerController@homepage');
-Route::get('/category/{id}', 'FlowerController@view');
-Route::get('/category/{id}/update', 'FlowerController@update');
-Route::get('/category/{id}/details', 'FlowerController@details');
-Route::get('/add', 'FlowerController@add');
-Route::get('/manage', 'FlowerController@managecategory');
-Route::get('/manage/{id}', 'FlowerController@updatecategory');
-Route::get('/cart', 'FlowerController@cart');
-Route::get('/history', 'FlowerController@history');
-Route::get('/history/{id}', 'FlowerController@historydetail');
+Route::get('/', 'FlowerController@homepage')->name('homepage');
+Route::get('/category/{id}', 'FlowerController@view')->name('view');
+Route::get('/category/{id}/update', 'FlowerController@update')->name('update')->middleware('manager');
+Route::get('/category/{id}/details', 'FlowerController@details')->name('details');
+Route::get('/add', 'FlowerController@add')->name('addflower')->middleware('manager');
+Route::get('/manage', 'FlowerController@managecategory')->name('managecategory')->middleware('manager');
+Route::get('/manage/{id}', 'FlowerController@updatecategory')->name('updatecategory')->middleware('manager');
+Route::get('/cart', 'FlowerController@cart')->name('cart')->middleware('customer');
+Route::get('/history', 'FlowerController@history')->name('history')->middleware('customer');
+Route::get('/history/{id}', 'FlowerController@historydetail')->name('historydetail')->middleware('customer');
 Route::get('/changepassword', 'ChangePasswordController@index');
 Route::post('/changepassword', 'ChangePasswordController@store')->name('change.password');
 
