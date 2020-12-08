@@ -24,7 +24,8 @@ class FlowerController extends Controller
     }
 
     public function update($id){
-        return view('update');
+        $flower = Flower::find($id);
+        return view('update', ['flower' => $flower]);
     }
 
     public function details($id){
@@ -37,11 +38,13 @@ class FlowerController extends Controller
     }
 
     public function managecategory(){
-        return view('managecategory');
+        $flower_categories = FlowerCategory::all();
+        return view('managecategory', ['flower_categories' => $flower_categories]);
     }
 
     public function updatecategory($id){
-        return view('updatecategory');
+        $flower_categories = FlowerCategory::find($id);
+        return view('updatecategory', ['flower_categories' => $flower_categories]);
     }
 
     public function cart(){

@@ -8,7 +8,7 @@
             <h5>Guest</h5>
         @endguest
         @auth
-            @if(Auth::user()->username == 'admin')
+            @if(Auth::user()->userRole == 1)
                 <h5>Hi, you are an Admin!</h5>
             @else
                 <h5>Hi, {{ Auth::user()->username }}.</h5>
@@ -26,14 +26,6 @@
                         <h2>{{ $flower_category->flowerCategoriesName }}</h2>
                         <p><a class="btn btn-secondary" href="/category/{{ $flower_category->id }}" role="button">View flowers »</a></p>
                     </div>
-
-                <!-- <div class="card m-2" style="width: 14rem;">
-                    <img class="card-img-top imgHeight" src="{{ $flower_category->flowerCategoriesImage }}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title" style="text-align: center">{{ $flower_category->flowerCategoriesName }}</h5>
-                    </div>
-                    <a href="/category/{{ $flower_category->id }}" class="btn btn-primary btn-lg btn-block">See All</a>
-                </div> -->
                 @endforeach
             </div>
         </div>

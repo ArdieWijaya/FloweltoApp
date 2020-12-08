@@ -71,6 +71,18 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+                                    @if(Auth::check())
+                                        @if((Auth::user()->userRole == 1))
+                                                <a class="dropdown-item" href="/add">Add Flower</a>
+                                                <a class="dropdown-item" href="/manage">Manage Categories</a>
+                                        @endif
+                                        @if((Auth::user()->userRole == 2))
+                                                    <a class="dropdown-item" href="/cart">My Cart</a>
+                                                    <a class="dropdown-item" href="/history">Transaction History</a>
+                                            @endif
+                                    @endif
+
                                     <a class="dropdown-item" href="/changepassword">Change Password</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

@@ -20,6 +20,15 @@
                     <h2>{{ $flower->flowerName }}</h2>
                     <h3>Rp {{ $flower->flowerPrice }}</h3>
                     <p><a class="btn btn-secondary" href="/category/{{ $flower->id }}/details" role="button">See Description</a></p>
+
+                    @if(Auth::check())
+                    @if((Auth::user()->userRole == 1))
+                        <div>
+                            <p><a class="btn btn-danger" href="/category/{{ $flower->flower_category_id }}" role="button">Delete Flower</a></p>
+                            <p><a class="btn btn-primary" href="/category/{{ $flower->id }}/update" role="button">Update Flower</a></p>
+                        </div>
+                    @endif
+                    @endif
                 </div>
         @endif
     @endforeach

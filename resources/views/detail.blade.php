@@ -14,12 +14,13 @@
                         <h5 class="card-title">Rp {{ $flower->flowerPrice }}</h5>
                         <p class="card-text">{{ $flower->description }}</p>
 
+                        @if((!Auth::check()) || (Auth::user()->userRole != 1))
                         <p>Input Quantity:</p>
                         <input type="number" id="qtyNumber" min="0" step="1" data-bind="value:qtyNumber"/>
 
                         <button type="submit" class="btn btn-primary mb-2">Add to Cart</button>
+                        @endif
 
-                            </form>
                         </div>
                     </div>
                 </div>
