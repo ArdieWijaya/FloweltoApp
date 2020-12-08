@@ -10,15 +10,24 @@
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
+
+                        @if(session()->has('success'))
+                            <div class="alert alert-success">
+                                {{ session()->get('success') }}
+                            </div>
+                            @endif
+
                         <h3 class="card-title">{{ $flower->flowerName }}</h3>
                         <h5 class="card-title">Rp {{ $flower->flowerPrice }}</h5>
                         <p class="card-text">{{ $flower->description }}</p>
 
                         @if((!Auth::check()) || (Auth::user()->userRole != 1))
-                        <p>Input Quantity:</p>
-                        <input type="number" id="qtyNumber" min="0" step="1" data-bind="value:qtyNumber"/>
-
-                        <button type="submit" class="btn btn-primary mb-2">Add to Cart</button>
+                            <form method="POST" action={{ route('addtocart', $flower->id) }} class="form-inline">
+                                @csrf
+                                <label class="sr-only" for="inlineFormInputName2">Input Quantity</label>
+                                <input type="number" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" min=1 placeholder="Quantity" name="qty">
+                                <input type="submit" class="btn btn-primary mb-2"value="Add to Cart"/>
+                            </form>
                         @endif
 
                         </div>

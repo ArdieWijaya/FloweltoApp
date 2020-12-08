@@ -19,6 +19,8 @@ class CreateFlowersTable extends Migration
             $table->integer('flowerPrice');
             $table->string('description');
             $table->string('flowerImage');
+//            $table->dateTime('updated_at')->nullable();
+            $table->timestamps();
         });
     }
 

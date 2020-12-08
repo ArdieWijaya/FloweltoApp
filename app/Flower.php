@@ -9,4 +9,8 @@ class Flower extends Model
     public function flower_categories(){
         return $this->belongsTo(FlowerCategory::class, 'flower_category_id');
     }
+
+    public function Cart(){
+        return $this->belongsToMany(Cart::class);
+    }
 }

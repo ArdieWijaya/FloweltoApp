@@ -46,13 +46,10 @@
                                 Categories
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="/category/1">Hand Bouquet</a>
-                                <a class="dropdown-item" href="/category/2">Dried Flowers Bouquet</a>
-                                <a class="dropdown-item" href="/category/3">Flower Box</a>
-                                <a class="dropdown-item" href="/category/4">Balloon Flower Box</a>
-                                <a class="dropdown-item" href="/category/5">Doll Bouquet</a>
-                                <a class="dropdown-item" href="/category/6">Chocolate Bouquet</a>
-                                <a class="dropdown-item" href="/category/6">View All</a>
+                                @foreach(\App\FlowerCategory::all() as $flower_category)
+                                <a class="dropdown-item" href="/category/{{ $flower_category->id }}">{{ $flower_category->flowerCategoriesName }}</a>
+                                @endforeach
+                                <a class="dropdown-item" href="/category/">View All</a>
                             </div>
                         </div>
                         @guest

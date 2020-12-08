@@ -43,5 +43,9 @@ class Users extends Model{
     public function transaction(){
         return $this->hasMany(Transaction::class);
     }
+
+    public function cart(){
+        return $this->hasMany(Cart::class);
+    }
 }
 
