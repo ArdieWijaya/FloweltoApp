@@ -10,12 +10,17 @@
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <form>
-
+                        @if(session()->has('success'))
+                            <div class="alert alert-success">
+                                {{ session()->get('success') }}
+                            </div>
+                        @endif
+                        <form method="POST" action={{ route('updatecategorydata', $flower_categories->id) }}>
+                            @csrf
                             <div class="form-group row">
                                 <label for="flowerCategoryName" class="col-md-4 col-form-label text-md-right">{{ __('Category Name') }}</label>
                                 <div class="col-md-6">
-                                    <input id="flowerCategoriesName" type="text" class="form-control" name="flowerName" value="{{ $flower_categories->flowerCategoriesName }}">
+                                    <input id="flowerCategoriesName" type="text" class="form-control" name="flowerCategoriesName" value="{{ $flower_categories->flowerCategoriesName }}">
                                 </div>
                             </div>
 
@@ -26,9 +31,7 @@
                                 </div>
                             </div>
 
-                            <div>
-                                <button type="submit" class="btn btn-primary" href="/">Update</button>
-                            </div>
+                                <input type="submit" class="btn btn-primary mb-2"value="Update"/>
                         </form>
                     </div>
                 </div>

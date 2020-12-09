@@ -24,15 +24,21 @@
   <component name="ChangeListManager">
     <list default="true" id="152369e9-59e6-4f20-ba4a-b40ccfd6e5c9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Cart.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Flower.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Flower.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FlowerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FlowerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_27_100140_create_flowers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_27_100140_create_flowers_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_08_022152_create_cart_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_08_022152_create_cart_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/session.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/session.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_27_100157_create_flower_categories_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_27_100157_create_flower_categories_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/FlowerSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/FlowerSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cart.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/detail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/homepage.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/homepage.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/update.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/update.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/managecategory.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/managecategory.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/updatecategory.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/updatecategory.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/view.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
@@ -176,6 +182,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -228,7 +235,12 @@
       <workItem from="1607341922374" duration="4029000" />
       <workItem from="1607348436176" duration="71000" />
       <workItem from="1607387257710" duration="6705000" />
-      <workItem from="1607412457078" duration="18617000" />
+      <workItem from="1607412457078" duration="19871000" />
+      <workItem from="1607440206205" duration="3242000" />
+      <workItem from="1607447017201" duration="133000" />
+      <workItem from="1607492442525" duration="2133000" />
+      <workItem from="1607505130405" duration="18213000" />
+      <workItem from="1607528746308" duration="1450000" />
     </task>
     <servers />
   </component>
@@ -272,6 +284,10 @@
       <screen x="0" y="25" width="1920" height="1098" />
     </state>
     <state width="1878" height="302" key="GridCell.Tab.0.right/0.25.1920.1098@0.25.1920.1098" timestamp="1607055954641" />
+    <state x="469" y="210" key="SettingsEditor" timestamp="1607518235814">
+      <screen x="0" y="25" width="1920" height="1098" />
+    </state>
+    <state x="469" y="210" key="SettingsEditor/0.25.1920.1098@0.25.1920.1098" timestamp="1607518235814" />
     <state x="761" y="492" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607436009363">
       <screen x="0" y="25" width="1920" height="1098" />
     </state>
@@ -280,9 +296,9 @@
       <screen x="0" y="25" width="1920" height="1098" />
     </state>
     <state x="143" y="148" width="1693" height="722" key="dock-window-1/0.25.1920.1098@0.25.1920.1098" timestamp="1607261291996" />
-    <state x="625" y="270" width="670" height="676" key="search.everywhere.popup" timestamp="1607436125539">
+    <state x="625" y="270" width="670" height="676" key="search.everywhere.popup" timestamp="1607529981740">
       <screen x="0" y="25" width="1920" height="1098" />
     </state>
-    <state x="625" y="270" width="670" height="676" key="search.everywhere.popup/0.25.1920.1098@0.25.1920.1098" timestamp="1607436125539" />
+    <state x="625" y="270" width="670" height="676" key="search.everywhere.popup/0.25.1920.1098@0.25.1920.1098" timestamp="1607529981740" />
   </component>
 </project>

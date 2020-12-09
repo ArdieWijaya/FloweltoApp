@@ -17,6 +17,7 @@ class CreateFlowerCategoriesTable extends Migration
             $table->id();
             $table->string('flowerCategoriesName');
             $table->string('flowerCategoriesImage');
+            $table->timestamps();
         });
     }
 

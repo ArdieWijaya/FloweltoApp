@@ -21,14 +21,28 @@
                         <h5 class="card-title">Rp {{ $flower->flowerPrice }}</h5>
                         <p class="card-text">{{ $flower->description }}</p>
 
-                        @if((!Auth::check()) || (Auth::user()->userRole != 1))
-                            <form method="POST" action={{ route('addtocart', $flower->id) }} class="form-inline">
-                                @csrf
+                            @if(!Auth::check())
+                            <h1>Guest</h1>
+                            <div class="form-inline">
                                 <label class="sr-only" for="inlineFormInputName2">Input Quantity</label>
                                 <input type="number" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" min=1 placeholder="Quantity" name="qty">
-                                <input type="submit" class="btn btn-primary mb-2"value="Add to Cart"/>
-                            </form>
-                        @endif
+                                <a type="submit" href="/login" class="btn btn-primary mb-2">Add to Cart</a>
+                            </div>
+                            @else
+                                @if(Auth::user()->userRole != 1)
+                                    <form method="POST" action={{ route('addtocart', $flower->id) }} class="form-inline">
+                                        @csrf
+                                        <label class="sr-only" for="inlineFormInputName2">Input Quantity</label>
+                                        <input type="number" class="form-control mb-2 mr-sm-2 @error('qty') is-invalid @enderror" id="inlineFormInputName2" placeholder="Quantity" name="qty">
+                                        <input type="submit" class="btn btn-primary mb-2"value="Add to Cart"/>
+                                        @error('qty')
+                                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                        @enderror
+                                    </form>
+                                @endif
+                            @endif
 
                         </div>
                     </div>

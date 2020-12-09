@@ -49,7 +49,6 @@
                                 @foreach(\App\FlowerCategory::all() as $flower_category)
                                 <a class="dropdown-item" href="/category/{{ $flower_category->id }}">{{ $flower_category->flowerCategoriesName }}</a>
                                 @endforeach
-                                <a class="dropdown-item" href="/category/">View All</a>
                             </div>
                         </div>
                         @guest

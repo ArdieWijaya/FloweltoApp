@@ -58,7 +58,13 @@
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                <input id="password-confirm" type="password" class="form-control @error('password') is-invalid @enderror" name="password_confirmation" required autocomplete="new-password">
+
+                                @error('password-confirm')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
 
@@ -67,17 +73,22 @@
 
                             <div class="col-md-6">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="gender" id="RadioGenderMale" value="Male">
+                                    <input class="form-check-input @error('gender') is-invalid @enderror" type="radio" name="gender" id="RadioGenderMale" value="Male">
                                     <label class="form-check-label" for="gender1">
                                         Male
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="gender" id="RadioGenderFemale" value="Female">
+                                    <input class="form-check-input @error('gender') is-invalid @enderror" type="radio" name="gender" id="RadioGenderFemale" value="Female">
                                     <label class="form-check-label" for="gender2">
                                         Female
                                     </label>
                                 </div>
+                                @error('gender')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
 
@@ -85,7 +96,12 @@
                             <label for="DoB" class="col-md-4 col-form-label text-md-right">{{ __('Date of Birth') }}</label>
 
                             <div class="col-md-6">
-                                <input class="form-control" type="date" value="2000-01-01" id="example-date-input" name="DoB">
+                                <input class="form-control @error('DoB') is-invalid @enderror" type="date" id="DoB" name="DoB">
+                                @error('DoB')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
 
@@ -93,7 +109,12 @@
                             <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
 
                             <div class="col-md-6">
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" name="address"></textarea>
+                                <textarea class="form-control @error('address') is-invalid @enderror" id="exampleFormControlTextarea1" rows="2" name="address"></textarea>
+                                @error('address')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
 

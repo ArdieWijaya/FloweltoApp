@@ -11,7 +11,7 @@ class Cart extends Model
     ];
 
     public function Flower(){
-        return $this->hasOne(Flower::class, 'id');
+        return $this->belongsTo(Flower::class, 'flowerId');
     }
 
     public function User(){

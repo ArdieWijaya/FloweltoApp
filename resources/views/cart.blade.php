@@ -7,7 +7,6 @@
     <h1>Kosong</h1>
     @else
         @foreach($carts as $cart)
-            <form>
             <div class="container">
                 <div class="card mb-3" style="max-width: 100%;">
                     <div class="row no-gutters">
@@ -17,10 +16,15 @@
                         <div class="col-md-8">
                             <div class="card-body">
                                 <h3 class="card-title">{{ $cart->Flower->flowerName }}</h3>
-                                <h5 class="card-title">Qty: {{ $cart->flowerQuantity }}</h5>
-                                <p class="card-text">Price: Rp {{ $cart->flowerQuantity * $cart->Flower->flowerPrice }}</p>
-                                <input type="submit" class="btn btn-primary mb-2"value="Update"/>
-            </form>
+                                <div class="card-title">
+                                    <form method="POST" action={{ route('updatecart', $cart->id) }} class="form-inline">
+                                        @csrf
+                                        <input type="number" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" min=1 value="{{ $cart->flowerQuantity }}" name="qty">
+                                        <input type="submit" class="btn btn-primary mb-2"value="Update"/>
+                                    </form>
+                                </div>
+                                <h5 class="card-title">Price per piece: Rp {{ $cart->Flower->flowerPrice }}</h5>
+                                <h5 class="card-text">Total Price: Rp {{ $cart->flowerQuantity * $cart->Flower->flowerPrice }}</h5>
                             </div>
                         </div>
                     </div>

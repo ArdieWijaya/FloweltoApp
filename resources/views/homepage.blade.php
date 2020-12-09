@@ -2,18 +2,6 @@
 @section('judul', 'Homepage')
 
 @section('content')
-
-    <div class = "container">
-        @guest
-            <h5>Guest</h5>
-        @endguest
-        @auth
-            @if(Auth::user()->userRole == 1)
-                <h5>Hi, you are an Admin!</h5>
-            @else
-                <h5>Hi, {{ Auth::user()->username }}.</h5>
-            @endif
-        @endauth
         <h1 style="text-align: center">Welcome to Flowelto Shop</h1>
         <h2 style="text-align: center" class="pb-5">The Best Flower Shop in Binus University</h2>
 

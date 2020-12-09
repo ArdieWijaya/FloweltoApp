@@ -11,6 +11,6 @@ class Flower extends Model
     }
 
     public function Cart(){
-        return $this->belongsToMany(Cart::class);
+        return $this->hasOne(Cart::class);
     }
 }
