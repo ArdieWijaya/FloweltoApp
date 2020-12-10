@@ -18,7 +18,7 @@ class CreateFlowersTable extends Migration
             $table->string('flowerName');
             $table->integer('flowerPrice');
             $table->string('description');
-            $table->string('flowerImage');
+            $table->string('flowerImage')->default('https://www.indiaspora.org/wp-content/uploads/2018/10/image-not-available.jpg');
 //            $table->dateTime('updated_at')->nullable();
             $table->timestamps();
         });

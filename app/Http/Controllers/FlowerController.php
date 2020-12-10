@@ -21,7 +21,7 @@ class FlowerController extends Controller
     }
 
     public function view($id){
-        $flowers = Flower::where('flower_category_id', '=', $id)->paginate(4);
+        $flowers = Flower::where('flower_category_id', '=', $id)->paginate(8);
         $flower_categories = FlowerCategory::find($id);
         return view('view', ['flowers' => $flowers, 'flower_categories' => $flower_categories]);
     }
@@ -48,12 +48,23 @@ class FlowerController extends Controller
             'flower_category_id' => ['required']
         ]);
 
+        if($request->flowerImage != null){
+            $flower = Flower::where('id', $request->id)->update([
+                'flowerName' => $request->flowerName,
+                'flowerPrice' => $request->flowerPrice,
+                'description' => $request->description,
+                'flower_category_id' => $request->flower_category_id,
+                'flowerImage' => $request->flowerImage
+            ]);
+        }
+        else{
         $flower = Flower::where('id', $request->id)->update([
             'flowerName' => $request->flowerName,
             'flowerPrice' => $request->flowerPrice,
             'description' => $request->description,
             'flower_category_id' => $request->flower_category_id
         ]);
+        }
         return back()->with('success', 'You have successfully updated!');
     }
 
@@ -115,14 +126,27 @@ class FlowerController extends Controller
             'description' => ['required', 'string', 'min:20']
         ]);
 
-        $flower = new Flower([
-            'flowerName' => $request->flowerName,
-            'flowerPrice' => $request->flowerPrice,
-            'description' => $request->description,
-            'flower_category_id' => $request->flower_category_id
-        ]);
-        $flower->save();
-        return view('homepage');
+        if($request->flowerImage != null){
+            $flower = new Flower([
+                'flowerName' => $request->flowerName,
+                'flowerPrice' => $request->flowerPrice,
+                'description' => $request->description,
+                'flower_category_id' => $request->flower_category_id,
+                'flowerImage' => $request->flowerImage
+            ]);
+            $flower->save();
+        }
+        else{
+            $flower = new Flower([
+                'flowerName' => $request->flowerName,
+                'flowerPrice' => $request->flowerPrice,
+                'description' => $request->description,
+                'flower_category_id' => $request->flower_category_id
+            ]);
+            $flower->save();
+        }
+        $flower_categories = FlowerCategory::all();
+        return view('homepage', ['flower_categories' => $flower_categories]);
     }
 
     public function managecategory(){
@@ -148,9 +172,20 @@ class FlowerController extends Controller
         $this->validate($request, [
             'flowerCategoriesName' => ['required', 'unique:flower_categories', 'string', 'min:5']
         ]);
-        $flower_category = FlowerCategory::where('id', $id)->update([
-            'flowerCategoriesName' => $request->flowerCategoriesName
-        ]);
+
+        if($request->flowerCategoriesImage == null){
+            $flower_category = FlowerCategory::where('id', $id)->update([
+                'flowerCategoriesName' => $request->flowerCategoriesName
+            ]);
+        }
+
+        else{
+            $flower_category = FlowerCategory::where('id', $id)->update([
+                'flowerCategoriesName' => $request->flowerCategoriesName,
+                'flowerCategoriesImage' => $request->flowerCategoriesImage
+            ]);
+        }
+
         return back()->with('success', 'You have successfully updated!');
     }
 

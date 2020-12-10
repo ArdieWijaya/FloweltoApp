@@ -16,7 +16,7 @@ class CreateFlowerCategoriesTable extends Migration
         Schema::create('flower_categories', function (Blueprint $table) {
             $table->id();
             $table->string('flowerCategoriesName');
-            $table->string('flowerCategoriesImage');
+            $table->string('flowerCategoriesImage')->default('https://www.indiaspora.org/wp-content/uploads/2018/10/image-not-available.jpg');
             $table->timestamps();
         });
     }

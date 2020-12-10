@@ -20,14 +20,19 @@
                             <div class="form-group row">
                                 <label for="flowerCategoryName" class="col-md-4 col-form-label text-md-right">{{ __('Category Name') }}</label>
                                 <div class="col-md-6">
-                                    <input id="flowerCategoriesName" type="text" class="form-control" name="flowerCategoriesName" value="{{ $flower_categories->flowerCategoriesName }}">
+                                    <input id="flowerCategoriesName" type="text" class="form-control @error('flowerCategoriesName') is-invalid @enderror" name="flowerCategoriesName" value="{{ $flower_categories->flowerCategoriesName }}">
+                                    @error('flowerCategoriesName')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label for="flowerCategoriesImage" class="col-md-4 col-form-label text-md-right">Category Image</label>
                                 <div class="col-md-6">
-                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                    <input type="file" class="form-control-file" id="flowerCategoriesImage" name="flowerCategoriesImage">
                                 </div>
                             </div>
 

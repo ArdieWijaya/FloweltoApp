@@ -10,13 +10,13 @@
             <div class="col-md-6">
                 <select class="form-control @error('flower_category_id') is-invalid @enderror" id="flower_category_id">
                     @foreach(\App\FlowerCategory::all() as $flower_category)
-                    <option id="{{ $flower_category->id }}" name="{{ $flower_category->id }}">{{ $flower_category->flowerCategoriesName }}</option>
+                    <option id="{{ $flower_category->id }}" name="{{ $flower_category->id }} value="{{ $flower_category->id }}">{{ $flower_category->flowerCategoriesName }}</option>
                     @endforeach
                 </select>
                 @error('flower_category_id')
                 <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                    <strong>{{ $message }}</strong>
+                </span>
                 @enderror
             </div>
         </div>
@@ -27,8 +27,8 @@
                 <input id="flowerName" type="text" class="form-control @error('flowerName') is-invalid @enderror" name="flowerName">
                 @error('flowerName')
                 <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                    <strong>{{ $message }}</strong>
+                </span>
                 @enderror
             </div>
         </div>
@@ -39,8 +39,8 @@
                 <input id="flowerPrice" type="number" class="form-control @error('flowerPrice') is-invalid @enderror" name="flowerPrice" min="50000">
                 @error('flowerPrice')
                 <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                    <strong>{{ $message }}</strong>
+                </span>
                 @enderror
             </div>
         </div>
@@ -51,8 +51,8 @@
                 <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description" rows="3"></textarea>
                 @error('description')
                 <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                    <strong>{{ $message }}</strong>
+                </span>
                 @enderror
             </div>
         </div>
@@ -60,7 +60,7 @@
         <div class="form-group row">
             <label for="flowerImage" class="col-md-4 col-form-label text-md-right">Flower Image</label>
             <div class="col-md-6">
-                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                <input type="file" class="form-control-file" id="flowerImage" name="flowerImage">
             </div>
         </div>
 
