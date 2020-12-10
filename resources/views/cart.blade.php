@@ -4,7 +4,7 @@
 @section('content')
 <h1 style="text-align: center">Cart</h1>
     @if($carts->isEmpty())
-    <h1>Kosong</h1>
+    <h1 class="text-center">Cart masih kosong</h1>
     @else
         @foreach($carts as $cart)
             <div class="container">
@@ -19,7 +19,8 @@
                                 <div class="card-title">
                                     <form method="POST" action={{ route('updatecart', $cart->id) }} class="form-inline">
                                         @csrf
-                                        <input type="number" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" min=1 value="{{ $cart->flowerQuantity }}" name="qty">
+                                        <input type="number" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" min=0 value="{{ $cart->flowerQuantity }}" name="qty">
+                                        <input type="hidden" value="{{ $cart->id }}" name="id">
                                         <input type="submit" class="btn btn-primary mb-2"value="Update"/>
                                     </form>
                                 </div>
@@ -34,7 +35,8 @@
             </div>
         @endforeach
         <div class="d-flex justify-content-center">
-        <form>
+        <form method="POST" action="{{ route('checkout') }}">
+            @csrf
             <input type="submit" class="btn btn-danger mb-2"value="Checkout"/>
         </form>
         </div>

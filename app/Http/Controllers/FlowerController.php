@@ -21,7 +21,7 @@ class FlowerController extends Controller
     }
 
     public function view($id){
-        $flowers = Flower::where('flower_category_id', '=', $id)->get();
+        $flowers = Flower::where('flower_category_id', '=', $id)->paginate(4);
         $flower_categories = FlowerCategory::find($id);
         return view('view', ['flowers' => $flowers, 'flower_categories' => $flower_categories]);
     }
@@ -84,18 +84,45 @@ class FlowerController extends Controller
            'qty' => ['required', 'integer', 'min:1']
         ]);
 
-        $cart = new Cart([
-           "flowerQuantity" => $request->qty,
-            "flowerId" => $id,
-            "userId" => Auth::id()
-        ]);
-        $cart->save();
+        $check = Cart::where('userId', '=', Auth::id())->where('flowerId', '=', $id)->first();
+
+        if($check != NULL){
+            Cart::where('userId', '=', Auth::id())->where('flowerId', '=', $id)->update([
+               'flowerQuantity' => $request->qty + $check->flowerQuantity
+            ]);
+        }
+        else {
+            $cart = new Cart([
+                "flowerQuantity" => $request->qty,
+                "flowerId" => $id,
+                "userId" => Auth::id()
+            ]);
+            $cart->save();
+        }
         $flower = Flower::all()->find($id);
         return back()->with('success', 'You have successfully add '.$flower->flowerName);
     }
 
     public function add(){
         return view('add');
+    }
+
+    public function addflower(Request $request){
+        $this->validate($request, [
+            'flower_category_id' => ['required'],
+            'flowerName' => ['required', 'unique:flowers', 'string', 'min:5'],
+            'flowerPrice' => ['required', 'integer', 'min:50000'],
+            'description' => ['required', 'string', 'min:20']
+        ]);
+
+        $flower = new Flower([
+            'flowerName' => $request->flowerName,
+            'flowerPrice' => $request->flowerPrice,
+            'description' => $request->description,
+            'flower_category_id' => $request->flower_category_id
+        ]);
+        $flower->save();
+        return view('homepage');
     }
 
     public function managecategory(){
@@ -118,7 +145,6 @@ class FlowerController extends Controller
     }
 
     public function updatecategorydata(Request $request, $id){
-//        dd($request);
         $this->validate($request, [
             'flowerCategoriesName' => ['required', 'unique:flower_categories', 'string', 'min:5']
         ]);
@@ -136,17 +162,55 @@ class FlowerController extends Controller
     }
 
     public function updatecart(Request $request){
+        $this->validate($request, [
+            'qty' => ['required', 'integer', 'min:0']
+        ]);
+
+        if($request->qty == 0){
+            DB::delete('DELETE FROM carts WHERE id = ?', [$request->id]);
+        }
+
+        else{
         $cart = Cart::where('id', $request->id)->update([
             'flowerQuantity' => $request->qty
         ]);
+        }
+
         return back();
     }
 
+    public function checkout(Request $request){
+        $carts = Cart::where('userId', '=', Auth::id())->get();
+
+        $transactions = new Transaction([
+            "user_id" => Auth::id()
+        ]);
+        $transactions->save();
+
+        foreach($carts as $cart){
+            $transactiondetail = new TransactionDetails([
+                'qty' => $cart->flowerQuantity,
+                'flower_id' => $cart->flowerId,
+                'transaction_id' => $transactions->id
+            ]);
+            $transactiondetail->save();
+        }
+
+        DB::delete('DELETE FROM carts WHERE userId = ?', [Auth::id()]);
+        $flower_categories = FlowerCategory::all();
+        return view('homepage', ['flower_categories' => $flower_categories]);
+    }
+
     public function history(){
-        return view('history');
+        $id = Auth::user()->id;
+        $transactions = Transaction::where('user_id', '=', $id)->orderBy('created_at', 'desc')->get();
+        return view('history', ['transactions' => $transactions]);
     }
 
     public function historydetail($id){
-        return view('historydetail');
+        $details = TransactionDetails::where('transaction_id', '=', $id)->get();
+        $totalprice = DB::table('transaction_details')->join('flowers', 'flower_id', '=', 'flowers.id')
+            ->where('transaction_id', '=', $id)->sum(DB::raw('qty * flowers.flowerPrice'));
+        return view('historydetail', ['details' => $details, 'totalprice' => $totalprice]);
     }
 }
