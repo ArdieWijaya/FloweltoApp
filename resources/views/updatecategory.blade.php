@@ -15,7 +15,7 @@
                                 {{ session()->get('success') }}
                             </div>
                         @endif
-                        <form method="POST" action={{ route('updatecategorydata', $flower_categories->id) }}>
+                        <form method="POST" action={{ route('updatecategorydata', $flower_categories->id) }} enctype="multipart/form-data">
                             @csrf
                             <div class="form-group row">
                                 <label for="flowerCategoryName" class="col-md-4 col-form-label text-md-right">{{ __('Category Name') }}</label>

@@ -3,14 +3,14 @@
 
 @section('content')
     <div class="col-md-12">
-    <form method="POST" action={{ route('addflower') }}>
+    <form method="POST" action={{ route('addflower') }} enctype="multipart/form-data">
         @csrf
         <div class="form-group row">
             <label for="flower_category_id" class="col-md-4 col-form-label text-md-right">Flower Category</label>
             <div class="col-md-6">
-                <select class="form-control @error('flower_category_id') is-invalid @enderror" id="flower_category_id">
+                <select class="form-control @error('flower_category_id') is-invalid @enderror" name="flower_category_id" id="flower_category_id">
                     @foreach(\App\FlowerCategory::all() as $flower_category)
-                    <option id="{{ $flower_category->id }}" name="{{ $flower_category->id }} value="{{ $flower_category->id }}">{{ $flower_category->flowerCategoriesName }}</option>
+                    <option id="{{ $flower_category->id }}" value="{{ $flower_category->id }}">{{ $flower_category->flowerCategoriesName }}</option>
                     @endforeach
                 </select>
                 @error('flower_category_id')

@@ -10,6 +10,8 @@ use App\TransactionDetails;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class FlowerController extends Controller
 {
@@ -45,16 +47,23 @@ class FlowerController extends Controller
             'flowerName' => ['required', 'unique:flowers', 'string', 'min:5'],
             'flowerPrice' => ['required', 'numeric', 'min:50000'],
             'description' => ['required', 'string', 'min:20'],
-            'flower_category_id' => ['required']
+            'flower_category_id' => ['required'],
+            'flowerImage' => ['image']
         ]);
 
         if($request->flowerImage != null){
+
+            $extension = $request->flowerImage->extension();
+            $imageName = time().'-'.$request->flowerName.$extension;
+            $request->flowerImage->storeAs('/public', $imageName);
+            $url = Storage::url($imageName);
+
             $flower = Flower::where('id', $request->id)->update([
                 'flowerName' => $request->flowerName,
                 'flowerPrice' => $request->flowerPrice,
                 'description' => $request->description,
                 'flower_category_id' => $request->flower_category_id,
-                'flowerImage' => $request->flowerImage
+                'flowerImage' => $url
             ]);
         }
         else{
@@ -120,19 +129,25 @@ class FlowerController extends Controller
 
     public function addflower(Request $request){
         $this->validate($request, [
-            'flower_category_id' => ['required'],
+//            'flower_category_id' => ['required'],
             'flowerName' => ['required', 'unique:flowers', 'string', 'min:5'],
             'flowerPrice' => ['required', 'integer', 'min:50000'],
-            'description' => ['required', 'string', 'min:20']
+            'description' => ['required', 'string', 'min:20'],
+            'flowerImage' => ['image']
         ]);
 
         if($request->flowerImage != null){
+            $extension = $request->file('flowerImage')->getClientOriginalExtension();
+            $imageName = time().'-'.$request->flowerName.$extension;
+            $request->flowerImage->storeAs('/public', $imageName);
+            $url = Storage::url($imageName);
+
             $flower = new Flower([
                 'flowerName' => $request->flowerName,
                 'flowerPrice' => $request->flowerPrice,
                 'description' => $request->description,
                 'flower_category_id' => $request->flower_category_id,
-                'flowerImage' => $request->flowerImage
+                'flowerImage' => $url
             ]);
             $flower->save();
         }
@@ -169,24 +184,36 @@ class FlowerController extends Controller
     }
 
     public function updatecategorydata(Request $request, $id){
-        $this->validate($request, [
-            'flowerCategoriesName' => ['required', 'unique:flower_categories', 'string', 'min:5']
+        $validate = $request->validate([
+            'flowerCategoriesName' => ['required', 'unique:flower_categories', 'string', 'min:5'],
+            'flowerCategoriesImage' => ['image']
         ]);
 
-        if($request->flowerCategoriesImage == null){
-            $flower_category = FlowerCategory::where('id', $id)->update([
-                'flowerCategoriesName' => $request->flowerCategoriesName
-            ]);
+        if($validate != null){
+            if($request->flowerCategoriesImage == null){
+                FlowerCategory::where('id', $id)->update([
+                    'flowerCategoriesName' => $request->flowerCategoriesName
+                ]);
+                return back()->with('success', 'You have successfully updated!');
+            }
+
+            else{
+                $extension = $request->flowerCategoriesImage->extension();
+                $imageName = time().'-'.$request->flowerCategoriesName.$extension;
+                $request->flowerCategoriesImage->storeAs('/public', $imageName);
+                $url = Storage::url($imageName);
+
+//                dd($request);
+
+                FlowerCategory::where('id', $id)->update([
+                    'flowerCategoriesName' => $request->flowerCategoriesName,
+                    'flowerCategoriesImage' => $url
+                ]);
+                return back()->with('success', 'You have successfully updated!');
+            }
         }
 
-        else{
-            $flower_category = FlowerCategory::where('id', $id)->update([
-                'flowerCategoriesName' => $request->flowerCategoriesName,
-                'flowerCategoriesImage' => $request->flowerCategoriesImage
-            ]);
-        }
-
-        return back()->with('success', 'You have successfully updated!');
+        return view('homepage');
     }
 
     public function cart(){
