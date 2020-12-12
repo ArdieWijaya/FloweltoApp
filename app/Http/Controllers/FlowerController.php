@@ -270,9 +270,10 @@ class FlowerController extends Controller
     }
 
     public function historydetail($id){
+        $transaction = Transaction::where('id', '=', $id)->first();
         $details = TransactionDetails::where('transaction_id', '=', $id)->get();
         $totalprice = DB::table('transaction_details')->join('flowers', 'flower_id', '=', 'flowers.id')
             ->where('transaction_id', '=', $id)->sum(DB::raw('qty * flowers.flowerPrice'));
-        return view('historydetail', ['details' => $details, 'totalprice' => $totalprice]);
+        return view('historydetail', ['details' => $details, 'totalprice' => $totalprice, 'transaction' => $transaction]);
     }
 }

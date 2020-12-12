@@ -2,8 +2,8 @@
 @section('judul', 'Transaction History Details')
 
 @section('content')
+    <h1 class="text-center">Your Transaction at {{ $transaction->created_at }}</h1>
     @foreach($details as $detail)
-{{--        {{ dd($detail) }}--}}
         <div class="container">
             <div class="card mb-3" style="max-width: 100%;">
                 <div class="row no-gutters">
