@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class FlowerCategoriesSeeder extends Seeder
 {
@@ -33,8 +34,8 @@ class FlowerCategoriesSeeder extends Seeder
                 'flowerCategoriesImage' => 'https://cf.shopee.co.id/file/4eeb1c7eea89a731df04ecaaa8e21592'
             ],
             [
-                'flowerCategoriesName' => 'Chocolate Bouquet',
-                'flowerCategoriesImage' => 'https://ecs7.tokopedia.net/img/cache/700/product-1/2019/12/6/158469/158469_3e988823-b107-40bf-bfe9-448b517f0190_1079_1079.jpg'
+                'flowerCategoriesName' => 'Snack Bouquet',
+                'flowerCategoriesImage' => 'https://cf.shopee.co.id/file/b8d69c875715ba3bf783f5c39a4e9ad0'
             ]
         ]);
     }

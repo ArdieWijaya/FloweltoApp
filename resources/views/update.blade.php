@@ -8,7 +8,7 @@
                 <div class="col-md-4">
                     <img src="{{ $flower->flowerImage }}" class="card-img" alt="{{ $flower->flowerImage }}">
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-8 pt-3">
                     @if(session()->has('success'))
                         <div class="alert alert-success">
                             {{ session()->get('success') }}
@@ -71,7 +71,7 @@
                             </div>
 
                             <div class="d-flex justify-content-end">
-                                <input type="submit" class="btn btn-primary mb-2" value="Update"/>
+                                <input type="submit" class="btn btn-primary mb-2 mr-2 pl-4 pr-4" value="Update"/>
                             </div>
                         </form>
                     </div>

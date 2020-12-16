@@ -2,10 +2,10 @@
 @section('judul', 'Manage Category')
 
 @section('content')
-    <h2 style="text-align: center" class="pb-5">Manage Category</h2>
-
-    <!-- Body -->
     <div class="container">
+
+    <h1 class="text-center">Manage Category</h1>
+
         <div class="row">
             @foreach($flower_categories as $flower_category)
                 <div class="col-lg-4 text-center mt-5">

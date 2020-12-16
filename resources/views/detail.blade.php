@@ -19,15 +19,16 @@
 
                         <h3 class="card-title">{{ $flower->flowerName }}</h3>
                         <h5 class="card-title">Rp {{ $flower->flowerPrice }}</h5>
-                        <p class="card-text">{{ $flower->description }}</p>
+                        <hr>
+                        <p class="card-text mt-4 mb-5">{{ $flower->description }}</p>
 
                             @if(!Auth::check())
-                            <h1>Guest</h1>
                             <div class="form-inline">
                                 <label class="sr-only" for="inlineFormInputName2">Input Quantity</label>
                                 <input type="number" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" min=1 placeholder="Quantity" name="qty">
                                 <a type="submit" href="/login" class="btn btn-primary mb-2">Add to Cart</a>
                             </div>
+                            <p class="text-muted">Hello, guest! Please log in first to access your shopping cart.</p>
                             @else
                                 @if(Auth::user()->userRole != 1)
                                     <form method="POST" action={{ route('addtocart', $flower->id) }} class="form-inline">

@@ -8,24 +8,35 @@
     @else
         @foreach($carts as $cart)
             <div class="container">
-                <div class="card mb-3" style="max-width: 100%;">
+                <div class="card mb-3" style="width: 100%; height: 18em">
                     <div class="row no-gutters">
-                        <div class="col-md-4">
-                            <img src="{{ $cart->Flower->flowerImage }}" class="card-img" alt="{{ $cart->Flower->flowerImage }}">
+                        <div class="col-auto">
+                            <img src="{{ $cart->Flower->flowerImage }}" style="height: 18em;" alt="{{ $cart->Flower->flowerImage }}">
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-9">
                             <div class="card-body">
                                 <h3 class="card-title">{{ $cart->Flower->flowerName }}</h3>
-                                <div class="card-title">
-                                    <form method="POST" action={{ route('updatecart', $cart->id) }} class="form-inline">
-                                        @csrf
-                                        <input type="number" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" min=0 value="{{ $cart->flowerQuantity }}" name="qty">
-                                        <input type="hidden" value="{{ $cart->id }}" name="id">
-                                        <input type="submit" class="btn btn-primary mb-2"value="Update"/>
-                                    </form>
+                                <hr>
+
+                                <div class="row">
+                                    <div class="col-8"><h5>Quantity:</h5></div>
+                                    <div class="col-4 justify-content-end">
+                                        <form method="POST" action={{ route('updatecart', $cart->id) }} class="form-inline">
+                                            @csrf
+                                            <input type="number" class="form-control mb-2 mr-sm-2 col-6" id="inlineFormInputName2" min=0 value="{{ $cart->flowerQuantity }}" name="qty">
+                                            <input type="hidden" value="{{ $cart->id }}" name="id">
+                                            <input type="submit" class="btn btn-primary mb-2"value="Update"/>
+                                        </form>
+                                    </div>
                                 </div>
-                                <h5 class="card-title">Price per piece: Rp {{ $cart->Flower->flowerPrice }}</h5>
-                                <h5 class="card-text">Total Price: Rp {{ $cart->flowerQuantity * $cart->Flower->flowerPrice }}</h5>
+                                <div class="row">
+                                    <div class="col-8"><h5>Price per piece:</h5></div>
+                                    <div class="col-4 text-right"><h5>Rp {{ $cart->Flower->flowerPrice }}</h5></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-8"><h5>Total Price:</h5></div>
+                                    <div class="col-4 text-right"><h5>Rp {{ $cart->flowerQuantity * $cart->Flower->flowerPrice }}</h5></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -37,7 +48,7 @@
         <div class="d-flex justify-content-center">
         <form method="POST" action="{{ route('checkout') }}">
             @csrf
-            <input type="submit" class="btn btn-danger mb-2"value="Checkout"/>
+            <input type="submit" class="btn btn-danger mt-3 mb-5 pl-5 pr-5 pt-2 pb-2" style="font-size: x-large;" value="Checkout"/>
         </form>
         </div>
     @endif

@@ -36,7 +36,9 @@
                                 </div>
                             </div>
 
-                                <input type="submit" class="btn btn-primary mb-2"value="Update"/>
+                            <div class="d-flex justify-content-end">
+                                <input type="submit" class="btn btn-primary mb-2 mt-5 pl-4 pr-4"value="Update Category"/>
+                            </div>
                         </form>
                     </div>
                 </div>
